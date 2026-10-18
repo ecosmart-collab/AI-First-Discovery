@@ -5,9 +5,18 @@
 
 {$DOMAIN} {
 	encode zstd gzip
-	request_body {
-		max_size 150KB
-	}
 	header Strict-Transport-Security "max-age=31536000"
-	reverse_proxy app:3000
+	@xmlUpload path /api/xml/analyze
+	handle @xmlUpload {
+		request_body {
+			max_size 3MB
+		}
+		reverse_proxy app:3000
+	}
+	handle {
+		request_body {
+			max_size 150KB
+		}
+		reverse_proxy app:3000
+	}
 }

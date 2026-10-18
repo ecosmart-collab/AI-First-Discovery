@@ -23,6 +23,6 @@ try {
   if(password!==confirmation)throw new Error('As senhas não coincidem. Nenhum arquivo foi criado.');
   const salt=randomBytes(16).toString('hex');
   const hash=`${salt}:${scryptSync(password,salt,64).toString('hex')}`;
-  writeFileSync('.env.production',`DOMAIN=${domain}\nACME_EMAIL=${email}\nADMIN_EMAIL=${email}\nADMIN_PASSWORD_HASH=${hash}\n`,{mode:0o600,flag:'wx'});
+  writeFileSync('.env.production',`DOMAIN=${domain}\nACME_EMAIL=${email}\nADMIN_EMAIL=${email}\nADMIN_PASSWORD_HASH=${hash}\nXML_SERVICE_TOKEN=${randomBytes(32).toString('hex')}\n`,{mode:0o600,flag:'wx'});
   console.log('Configuração criada em .env.production. A senha não foi armazenada em texto puro.');
 } finally {prompt.close();}

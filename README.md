@@ -15,12 +15,15 @@ Plataforma privada para conduzir diagnósticos de escritórios contábeis, inves
 - Propostas editáveis, personalizadas pelos registros, valores e duração; exportação Markdown e impressão/PDF pelo navegador.
 - SQLite persistente no servidor, exportação JSON e log de auditoria sem conteúdo das entrevistas.
 - Dados sintéticos opcionais, disponíveis em workspace vazio, e interface responsiva.
+- Piloto de XMLs com nfelib e erpbrasil.base: triagem de NF-e/NFC-e 4.00, duplicidades por escritório, revisão humana, CSV e comparação de tempo manual/assistido. Veja o [roteiro do piloto XML](docs/piloto-xml.md).
 
 As propostas usam composição determinística baseada nos registros. Esta versão não utiliza um modelo de linguagem nem envia dados a provedores de IA. A metodologia foi proposta, mas ainda não foi validada empiricamente; as urgências do catálogo são hipóteses.
 
 ## Executar localmente
 
 Requer Node.js 24 LTS ou superior e npm. O SQLite é o módulo nativo `node:sqlite` do Node, sem serviço externo.
+
+O piloto XML usa um serviço Python 3.12 separado. As demais funções da plataforma continuam disponíveis sem esse serviço; sua configuração local está no [roteiro do piloto](docs/piloto-xml.md).
 
 ```bash
 npm ci

@@ -37,6 +37,8 @@ docker run --rm -it --user "$(id -u):$(id -g)" \
 
 O assistente solicita domínio, e-mail e senha, com confirmação e entrada oculta. Ele cria `.env.production` com permissão 600. Esse arquivo é ignorado pelo Git e pelo build Docker; guarde uma cópia segura. Não compartilhe senhas, chaves SSH privadas ou o conteúdo desse arquivo pelo chat.
 
+O setup também gera o segredo interno do analisador XML. Para uma configuração criada antes desse piloto, siga [a atualização do segredo e do serviço Python](piloto-xml.md#configurar-na-vps) antes de subir o Compose novo.
+
 ## Subir a aplicação
 
 ```bash

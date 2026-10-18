@@ -11,10 +11,43 @@ services:
       APP_ORIGIN: https://${DOMAIN:?Defina o dominio}
       COOKIE_SECURE: "true"
       DATA_DIR: /app/data
+      XML_SERVICE_URL: http://xml-analyzer:8000
+      XML_SERVICE_TOKEN: ${XML_SERVICE_TOKEN:?Execute scripts/setup-xml.mjs para configurar o piloto}
+    depends_on:
+      xml-analyzer:
+        condition: service_healthy
+    networks:
+      - default
+      - xml_internal
     volumes:
       - discovery_data:/app/data
     expose:
       - "3000"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+  xml-analyzer:
+    build: ./services/xml
+    image: ai-first-discovery-xml:local
+    restart: unless-stopped
+    init: true
+    environment:
+      XML_SERVICE_TOKEN: ${XML_SERVICE_TOKEN:?Configure o segredo interno do piloto}
+    networks:
+      - xml_internal
+    expose:
+      - "8000"
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    mem_limit: 512m
+    cpus: 1.0
     security_opt:
       - no-new-privileges:true
     cap_drop:
@@ -51,3 +84,6 @@ volumes:
   discovery_data:
   caddy_data:
   caddy_config:
+networks:
+  xml_internal:
+    internal: true
