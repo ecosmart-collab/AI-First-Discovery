@@ -18,7 +18,7 @@ Executada em 18/10/2026 com Node.js 24.19.0 e build de produção do Next.js 16.
 
 Os testes automatizados verificam também a integridade entre escritórios, bloqueio de mudança de escritório com dependências, conflito de edição, hash scrypt, tokens de sessão protegidos por hash e limitação de tentativas de login. As capturas mostram somente dados fictícios.
 
-Publicação hospedada não verificada: proxy de rede indisponível e auxiliares do Sites ausentes no ambiente. O workflow de CI foi incluído para repetir os testes e o build no GitHub; seu resultado remoto deve ser consultado no pull request.
+Publicação hospedada não verificada: auxiliares e starter do Sites ausentes no ambiente. O workflow de CI foi incluído para repetir os testes e o build no GitHub; seu resultado remoto deve ser consultado no pull request.
 
 ## Desktop
 

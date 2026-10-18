@@ -95,4 +95,4 @@ O documento anexado é referência de requisitos, não uma fonte de autorizaçã
 
 ## Estado de publicação
 
-Aplicação implementada e verificável localmente. A publicação hospedada não foi concluída: o ambiente de construção não tinha conexão funcional com o proxy nem os auxiliares do Sites. Não há URL de produção nesta entrega.
+Aplicação implementada e verificável localmente. A publicação hospedada não foi concluída: os auxiliares e o starter do Sites não estavam disponíveis no ambiente. Não há URL de produção nesta entrega. O README fornece o procedimento para hospedagem privada em servidor Node com HTTPS e disco persistente.
