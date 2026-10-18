@@ -1,4 +1,5 @@
 const config = {
+  output: 'standalone',
   serverExternalPackages: ['node:sqlite'],
   async headers() {
     return [{ source: '/(.*)', headers: [

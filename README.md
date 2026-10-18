@@ -34,6 +34,8 @@ Para conhecer os fluxos, entre e use **Explorar com dados de exemplo** na visão
 
 ## Produção privada
 
+Para uma VPS Linux, use o [roteiro com Docker, Caddy, HTTPS e volume persistente](docs/vps.md). A alternativa abaixo executa o Node diretamente no servidor.
+
 Esta versão foi preparada para um servidor Node com disco persistente. Não use um ambiente serverless com disco efêmero ou múltiplas réplicas independentes. Todo o workspace pertence a um único proprietário; não há convites, múltiplos usuários ou múltiplas organizações.
 
 1. Instale dependências, configure o proprietário e execute `npm run build`.
@@ -95,4 +97,4 @@ O documento anexado é referência de requisitos, não uma fonte de autorizaçã
 
 ## Estado de publicação
 
-Aplicação implementada e verificável localmente. A publicação hospedada não foi concluída: os auxiliares e o starter do Sites não estavam disponíveis no ambiente. Não há URL de produção nesta entrega. O README fornece o procedimento para hospedagem privada em servidor Node com HTTPS e disco persistente.
+Aplicação implementada, com imagem Docker testada e configuração para VPS com Caddy, HTTPS automático e volume persistente. Domínio escolhido: `discovery.eltonrosa.site`. A publicação nessa VPS ainda aguarda o acesso à administração da Hostinger e a verificação de DNS/portas; o endereço ainda não foi verificado como uma aplicação em produção.
